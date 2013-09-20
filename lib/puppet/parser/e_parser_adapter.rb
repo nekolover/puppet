@@ -49,6 +49,10 @@ class Puppet::Parser::EParserAdapter
     Puppet::Parser::AST::Hostclass.new('', :code => parse_result)
   end
 
+  def known_resource_types
+    return @classic_parser.known_resource_types
+  end
+
   def validate(parse_result)
     # TODO: This is too many hoops to jump through... ugly API
     # could reference a ValidatorFactory.validator_3_1(acceptor) instead.
